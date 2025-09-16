@@ -12,6 +12,11 @@ Author's GitHub Repository: [filiphric/cypress-advanced-tau](https://github.com/
 
 This repository serves as a personal record of my learning journey through the "Advanced Cypress" course from Test Automation University. It contains my solutions, notes, and code examples based on the course's content.
 
+## Lessons learnt
+
+- API testing
+- Stubbing
+
 ## Trello clone app
 
 Bundled as a submodule is an app that is a clone of a popular [Trello app](https://trello.com). You can create boards, lists and cards. You can drag and drop cards between tests or even upload a picture to the card detail. There’s also a very simple signup and login which will allow you to create private boards
