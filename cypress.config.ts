@@ -1,11 +1,15 @@
 import { defineConfig } from "cypress";
 import { registerWorkshopScripts } from "./workshop-scripts/workshopScripts";
+import { seedDatabase } from "./seedDatabase.js"
 
 export default defineConfig({
   viewportHeight: 550,
   viewportWidth: 660,
   e2e: {
     setupNodeEvents(on, config) {
+      on('task', {
+        seedDatabase
+      })
       registerWorkshopScripts(on)
       // const version = config.env.version || 'local'
 
