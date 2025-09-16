@@ -17,7 +17,7 @@ it.only('shows an error message when creating a board', () => {
   cy.intercept({
     method: 'POST', 
     url: '/api/boards'
-  },{
+  },{ //stub the status code
     statusCode:500
   })
     .as('boardCreate')
@@ -30,6 +30,7 @@ it.only('shows an error message when creating a board', () => {
   cy.get('[data-testid=new-board-input]') //type name of the board
     .type('garden project{enter}')
 
+    //assert error message
   cy.get('[data-testid="notification-message"]')
     .should('be.visible')
 
