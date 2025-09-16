@@ -1,37 +1,36 @@
-it.only('loads a list of boards from fixture', () => {
+it('loads a list of boards from fixture', () => {
 
   cy.intercept({
     method: 'GET', 
     url: '/api/boards'
-  }, { //stubbing a repsonse
-    body:[
-    {      
-      created: "2025-09-01",
-      name: "Testing",
-      starred: true,
-      id: 2,
-      user: 0
-    }]   
-  }).as('boardList')
+  }, {  //stub with fixture
+    fixture: 'twoBoards.json'
+  }   
+  ).as('boardList')
 
   cy.visit('/');
 
 })
 
-it('shows an error message when creating a board', () => {
+it.only('shows an error message when creating a board', () => {
 
   cy.intercept({
     method: 'POST', 
     url: '/api/boards'
+  },{
+    statusCode:500
   })
     .as('boardCreate')
-
-  cy.visit('/');
-
-  cy.get('[data-cy=create-board]')
+  
+  cy.visit('/');  //visit home page
+  
+  cy.get('[data-testid=create-board]') //create a new board and click
     .click()
-
-  cy.get('[data-cy=new-board-input]')
+  
+  cy.get('[data-testid=new-board-input]') //type name of the board
     .type('garden project{enter}')
+
+  cy.get('[data-testid="notification-message"]')
+    .should('be.visible')
 
 })
