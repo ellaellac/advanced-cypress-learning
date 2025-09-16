@@ -16,6 +16,7 @@ This repository serves as a personal record of my learning journey through the "
 
 - API testing
 - Stubbing
+- Custom Command
 
 ## Trello clone app
 

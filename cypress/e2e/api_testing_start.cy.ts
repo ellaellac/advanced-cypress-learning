@@ -28,7 +28,7 @@ it('testing board list', () => {
   )
 });
 
-//resetting DB before all the tests
+//resetting DB before all the tests using before hook
 before('resetting database', () => {
   cy.request('POST', '/api/reset')
 });
