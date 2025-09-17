@@ -19,7 +19,7 @@ export default defineConfig({
       // baseUrl: 'https://staging.trello.com',
       // },
       const version = config.env.version || 'local' // from terminal npx cypress open --env version="prod"
-
+                                                    // add "local" as sometimes use npx cypress open as default
       config.env = require(`./cypress/config/${version}.json`)
 
       config.baseUrl = config.env.baseUrl
