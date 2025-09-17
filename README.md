@@ -17,6 +17,9 @@ This repository serves as a personal record of my learning journey through the "
 - API testing
 - Stubbing
 - Custom Command
+- Switching config env.
+- Authentication
+- Set up basic CI via Github actions
 
 ## Trello clone app
 
