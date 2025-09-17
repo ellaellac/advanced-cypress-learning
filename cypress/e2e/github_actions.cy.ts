@@ -5,10 +5,10 @@ beforeEach(() => {
 
 it('creates a new list and a new card', () => {
   cy.visit('/board/1')
-  cy.get('[data-cy="add-list-input"]')
+  cy.get('[data-testid="add-list-input"]')
     .type('new list{enter}')
   cy.contains('Add another card')
     .click()
-  cy.get('[data-cy="new-card-input"]')
+  cy.get('[data-testid="new-card-input"]')
     .type('new card{enter}')
 })

@@ -6,7 +6,7 @@ it('board has no lists', () => {
 
   cy.wait('@getLists')
 
-  cy.get('[data-cy=list]')
+  cy.get('[data-testid=list]')
     .should('not.exist')
   
 });
