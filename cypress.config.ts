@@ -11,15 +11,18 @@ export default defineConfig({
         seedDatabase
       })
 
-      if (config.env.version === 'prod') {
-        config.baseUrl='https://trello.com'
-      }
       registerWorkshopScripts(on)
-      // const version = config.env.version || 'local'
 
-      // config.env = require(`./cypress/config/${version}.json`)
+      // In cypress project setting - e.g.: 
+      // env: {
+      // version: 'staging',
+      // baseUrl: 'https://staging.trello.com',
+      // },
+      const version = config.env.version || 'local' // from terminal npx cypress open --env version="prod"
 
-      // config.baseUrl = config.env.baseUrl
+      config.env = require(`./cypress/config/${version}.json`)
+
+      config.baseUrl = config.env.baseUrl
       
       return config
     },
