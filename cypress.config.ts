@@ -10,6 +10,10 @@ export default defineConfig({
       on('task', {
         seedDatabase
       })
+
+      if (config.env.version === 'prod') {
+        config.baseUrl='https://trello.com'
+      }
       registerWorkshopScripts(on)
       // const version = config.env.version || 'local'
 
